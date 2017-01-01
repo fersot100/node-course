@@ -1,0 +1,19 @@
+The request module usage is of the following syntax:
+
+	var request = require('request');	
+	
+	request({
+		url: url,
+		json: true
+	},function (error, response, body){});
+
+The request module must be stored in a variable much like other node modules.
+
+The request function parameters are of the following syntax:
+	
+	{object with url and json attributes}, function(error,response,body){//content};
+
+The object has the attributes url which is typically set to url and json which in our case is set to true so the function knows what data we're receiving
+
+The function takes three parameters one of which is body. The body parameter is an object when the json attribute is set to true. We can access the attribbutes of the object using the body variable.
+

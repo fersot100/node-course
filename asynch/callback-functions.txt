@@ -1,0 +1,27 @@
+Callback functions are functions that get called in other files.
+	Example: In app.js - asynch
+		var weather = require('./weather.js');
+	links the weather variable to whatever the output of module.exports is in weather.js
+	
+The module can return anything, including a callback function.
+	Example: In weather.js - asynch
+		module.exports = function (location, callback) {
+			//code to run every time weather is invoked
+		} 
+
+The second parameter takes in a callback function and is called in the external file
+	callback('It is ' + body.main.temp + 'F in ' + body.name);
+
+The function that gets passed is defined in the app.js - asynch file although the implementation defines the function as an argument.
+
+location(function (location){
+		if(location){
+			weather(location.city, function(currentWeather){
+				console.log('No location given');
+				console.log('Location Estimate: ' + location.city);
+				console.log(currentWeather);
+			});
+		} else{
+			console.log('No city could be found for the user.');
+		}
+	});
